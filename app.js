@@ -75,17 +75,3 @@ function timeConversion(number) {
   let conversion = Math.floor(number / 60);
   return conversion;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Stop code 490008660N

@@ -1,0 +1,29 @@
+{
+  "name": "tfl-tracker",
+  "version": "1.0.0",
+  "description": "tfl-tracker",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "readline-sync": "^1.4.9",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charliequin/tfl-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charliequin/tfl-tracker/issues"
+  },
+  "homepage": "https://github.com/charliequin/tfl-tracker#readme"
+}

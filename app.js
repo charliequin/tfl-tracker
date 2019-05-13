@@ -3,9 +3,9 @@ const readLineSync = require('readline-sync');
 const _ = require('lodash');
 
 
-let getPC = readLineSync.question('Enter postcode: ');
+let postCode = readLineSync.question('Enter postcode: ');
 
-let PCRequest = REQUEST(`https://api.postcodes.io/postcodes/${getPC}`, function(error, response, body) {
+let PCRequest = REQUEST(`https://api.postcodes.io/postcodes/${postCode}`, function(error, response, body) {
   let Obj = JSON.parse(body);
 
   let latitude = Obj.result.latitude;
@@ -14,12 +14,13 @@ let PCRequest = REQUEST(`https://api.postcodes.io/postcodes/${getPC}`, function(
 
   let tflRequest = REQUEST(`https://api.tfl.gov.uk/StopPoint?stopTypes=NaptanPublicBusCoachTram&lat=${latitude}&lon=${longitude}&app_id=6ff340b4&app_key=14b38e375e33e8ce0dc21677e41ff17b`, function (error, response, body) {
     let Obj = JSON.parse(body);
+    console.log(Obj);
     let busStopCode = Obj.stopPoints[0].naptanId;
 
 
     let busRequest = REQUEST(`https://api.tfl.gov.uk/StopPoint/${busStopCode}/Arrivals?app_id=6ff340b4&app_key=14b38e375e33e8ce0dc21677e41ff17b`, function (error, response, body) {
-      let obj = JSON.parse(body);
-      let sortedArr = _.sortBy(obj, ['timeToStation']);
+      let Obj = JSON.parse(body);
+      let sortedArr = _.sortBy(Obj, ['timeToStation']);
 
       for (let i = 0; i < sortedArr.length; i++) {
         console.log('\n');

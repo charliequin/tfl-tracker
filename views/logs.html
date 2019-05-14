@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><h6>Sign Up</h6><span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/"><h6>Home</h6><span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
@@ -37,24 +37,29 @@
 
     <div class="main-contents container">
         <div class="main-contents-heading">
-            <h1> Get the next buses in your area <br> based on your location.</h1>
+            <h1> There are <%=busModel.length%> buses running in your area.</h1>
         </div>
-        <form method="POST" action="/logs">
-            <div class="input-group w-25" style="margin: auto; padding-top: 20px;">
-                <input type="text" class="form-control" aria-label="Enter Post Code" name="postcode" aria-describedby="inputGroup-sizing-default" placeholder="e.g E17AE" style="text-align: center;">
-                <div class="input-group-append w-10">
-                    <button class="btn btn-blue" type="submit" id="button-submit"><span class="glyphicon">&#xe013;</span></button>
-                </div>
+        <div class="list-group container">
+            <div class="row" style="justify-content: center; margin-top: 20px;">
+                <% for (let i = 0; i < busModel.length; i++) {%>
+                    <div class="col-auto">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%=busModel[i].lineName%></h5>
+                                <p class="card-text">This service is running from <strong><%=busModel[i].stationName%></strong> to <strong><%=busModel[i].destinationName%></strong>.</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Expected:</strong> <%=busModel[i].dateConverted%></li>
+                                <li class="list-group-item bg-light"><%=busModel[i].timeConverted%></li>
+                            </ul>
+                        </div>
+                    </div>
+                <%}%>
             </div>
-        </form>
+        </div>
     </div>
 
   
-
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

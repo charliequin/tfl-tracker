@@ -52,6 +52,15 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
+footer {
+  bottom: -50px;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  padding-top: 20px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -628,6 +637,7 @@ pre code {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
+  padding-top: 20px;
 }
 
 .col {
@@ -2470,6 +2480,18 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
+}
+
+.btn-blue {
+  color: #fff;
+  background-color: #004FA3;
+  border-color: #004FA3;
+}
+
+.btn-blue:hover {
+  color: #fff;
+  background-color: rgb(0, 66, 136);
+  border-color: rgb(0, 66, 136);
 }
 
 .btn-secondary:hover {
@@ -4621,6 +4643,10 @@ input[type="button"].btn-block {
 .card-subtitle {
   margin-top: -0.375rem;
   margin-bottom: 0;
+}
+
+.card-text {
+  max-height: 100%;
 }
 
 .card-text:last-child {

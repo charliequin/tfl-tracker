@@ -90,8 +90,6 @@ APP.post('/logs', function(req, res) {
 console.log(`Server initialised on https://localhost:${port}`);
 
 
-
-
 function stringUpper(string) {
     let styledString = (string).toUpperCase();
     return styledString;
